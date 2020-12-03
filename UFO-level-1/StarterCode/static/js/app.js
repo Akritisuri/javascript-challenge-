@@ -3,6 +3,22 @@ var tableData = data;
 
 // YOUR CODE HERE!
 var tbody = d3.select("tbody");
+
+console.log(data);
+
+data.forEach((ufoSightings) => {
+    console.log(ufoSightings);
+
+    var row = tbody.append("tr");
+
+    Object.defineProperties(ufoSightings_.forEach(([key, value]) =>
+}
+
+
+
+
+
+
 var button = d3.select("filter-btn"); 
 button.on("click", function() { 
     d3.event.preventDefault();
