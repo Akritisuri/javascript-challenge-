@@ -40,5 +40,17 @@ filterButton.on("click", function () {
 
     console.log(filteredData); 
 
+    //print out filtered data 
+    filteredData.forEach(function (filterDate) { 
+        console.log(filterDate); 
+        var row = tbody.append("tr"); 
 
-}
+        Object.defineProperties(filterDate).forEach(function([key, value]) {
+            console.log(key, value); 
+            var cell = row.append("td"); 
+            cell.text(value); 
+
+        });
+    });
+});
+
