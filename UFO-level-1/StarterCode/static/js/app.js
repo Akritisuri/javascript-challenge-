@@ -1,56 +1,69 @@
-// from data.js
-var tableData = data;
+// onload code
+window.addEventListener("load", tables);
 
-// YOUR CODE HERE!
+function tables() {
+// select and for iterate
 var tbody = d3.select("tbody");
-
-console.log(data);
-
-data.forEach((ufoSightings) => {
-    console.log(ufoSightings);
-
-    var row = tbody.append("tr");
-
-    Object.defineProperties(ufoSightings_.forEach(([key, value]) =>
-        console.log(key, value); 
-    // appending cells to rows for each value 
-        var cell = row.append("td"); 
+    
+    data.forEach((ufoSightings) => {
+        let row = tbody.append("tr");
+    for (const [key, value] of Object.entries(ufoSightings)) {
+        let cell = row.append("td");
         cell.text(value);
-    });
+    }
 });
 
-//select buttons 
-var filterButton = d3.select("#filter-btn"); 
+}
+{/* <select name="KEY" id="KEY">
+  <option value="date">date/time</option>
+  <option value="city">city</option>
+  <option value="state">state</option>
+  <option value="country">country</option>
+  <option value="shape">shape</option>
+</select> */}
+//On click to run this function
 
-//using D3 to attache a click handler 
-filterButton.on("click", function () {
-    tbody.html(""); 
 
-    //prevent page from refreshing
-    d3.event.preventDefault();
+function FilterFunction() {
 
-    var inputElement.d3.select("#datetime");
+var tbody = d3.select("tbody");
+tbody.html("");
+
+    var KEYElement = d3.select("#KEY");
+    var KEYValue = KEYElement.property("value");
+
+    var inputElement = d3.select("#datetime");
 
     var inputValue = inputElement.property("value"); 
 
-    console.log(inputValue); 
-    console.log(data); 
+    switch(KEYValue) { 
+        case "date": 
+        var filteredData = data.filter(ufoSighting => ufoSighting.datetime === inputValue); 
+        break; 
+        case "city": 
+        var filteredData = data.filter(ufoSighting => ufoSighting.city === inputValue);
+        break;
+        case "state": 
+        var filteredData = data.filter(ufoSighting => ufoSighting.state === inputValue); 
+        break; 
+        case "country": 
+        var filteredData = data.filter(ufoSighting => ufoSighting.country === inputValue);
+        break;
+        case "shape": 
+        var filteredData = data.filter(ufoSighting => ufoSighting.shape === inputValue);
+        break;
+    }
 
-    var filteredData = data.filter(ufoSighting => ufoSighting.datatime === inputValue); 
-
-    console.log(filteredData); 
-
+    console.log(filteredData);
     //print out filtered data 
-    filteredData.forEach(function (filterDate) { 
-        console.log(filterDate); 
-        var row = tbody.append("tr"); 
-
-        Object.defineProperties(filterDate).forEach(function([key, value]) {
-            console.log(key, value); 
-            var cell = row.append("td"); 
-            cell.text(value); 
-
-        });
-    });
+    filteredData.forEach((ufoSightings) => {
+        let row = tbody.append("tr");
+    for (const [key, value] of Object.entries(ufoSightings)) {
+        let cell = row.append("td");
+        cell.text(value);
+    }
 });
+
+}
+
 
