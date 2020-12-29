@@ -14,13 +14,7 @@ var tbody = d3.select("tbody");
 });
 
 }
-{/* <select name="KEY" id="KEY">
-  <option value="date">date/time</option>
-  <option value="city">city</option>
-  <option value="state">state</option>
-  <option value="country">country</option>
-  <option value="shape">shape</option>
-</select> */}
+
 //On click to run this function
 
 
